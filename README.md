@@ -16,6 +16,7 @@ class-based stylesheet, no framework runtime).
 | `grounds-maintenance-frankston.html` | Service page | Grounds Maintenance Frankston |
 | `about.html` | About | Frankston lawn & garden care (brand + trust) |
 | `contact.html` | Contact | Free lawn mowing quote Frankston |
+| `thank-you.html` | Post-submit confirmation (noindex) | — |
 
 ## Structure
 
@@ -55,8 +56,12 @@ class-based stylesheet, no framework runtime).
   vanilla JS file. Markup uses semantic sections and descriptive classes that map
   cleanly onto Webflow's structure panel.
 - The quote form uses standard `name` attributes on every field, so it can be wired
-  to Webflow Forms (or any handler) directly. The demo submit is handled client-side
-  in `js/main.js`; replace with your Webflow form action / integration on import.
+  to Webflow Forms (or any handler) directly. On submit, every form redirects to
+  `thank-you.html` — `js/main.js` performs the redirect (reading the form's `action`,
+  or a `data-redirect` attribute if you want a per-form destination), and the form's
+  `action="thank-you.html"` acts as the no-JS fallback. In Webflow, set the same URL
+  as the form's **redirect** in form settings. `thank-you.html` is `noindex` and kept
+  out of `sitemap.xml`, and makes an ideal conversion goal in analytics.
 - Google Fonts are linked in `<head>` (Oswald + Barlow) — add the same two families
   in Webflow's font settings.
 - JSON-LD `<script>` blocks can be pasted into each page's custom code (head).

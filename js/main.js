@@ -86,17 +86,12 @@
       apply(range.value);
     });
 
-    /* ---- Quote form (demo submit → success state) ---- */
+    /* ---- Quote form → redirect to thank-you page on submit ---- */
     document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var wrap = form.closest("[data-form-wrap]") || form.parentNode;
-        var success = wrap.querySelector("[data-form-success]");
-        if (success) {
-          form.classList.add("is-hidden");
-          success.classList.remove("is-hidden");
-          success.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
+        var url = form.getAttribute("data-redirect") || form.getAttribute("action") || "thank-you.html";
+        window.location.href = url;
       });
     });
 
