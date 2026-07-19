@@ -16,8 +16,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/style.css?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -82,11 +84,16 @@
     <a href="index.html" class="brand" aria-label="Local Lawn Mowing & Maintenance home"><img src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance logo" width="180" height="52"></a>
     <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="services.html" aria-current="page">Services</a>
-      <a href="index.html#areas">Service Areas</a>
+      <div class="nav-dd">
+        <a href="services.html" class="nav-dd-toggle" aria-current="page" aria-haspopup="true">Services <span class="caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="lawn-mowing-frankston.html">Lawn Mowing</a>
+          <a href="hedge-trimming-frankston.html">Hedge Trimming</a>
+          <a href="grounds-maintenance-frankston.html">Grounds Maintenance</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="index.html#reviews">Reviews</a>
-      <a href="index.html#gallery">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-cta">
@@ -99,7 +106,7 @@
 <main id="main">
 
   <section class="page-hero">
-    <img class="page-hero-bg" src="assets/images/grounds.webp" alt="Immaculately maintained grounds on a Frankston property">
+    <img fetchpriority="high" decoding="async" class="page-hero-bg" src="assets/images/grounds.webp" alt="Immaculately maintained grounds on a Frankston property">
     <div class="page-hero-overlay"></div>
     <div class="container">
       <p class="breadcrumb"><a href="index.html">Home</a> / <a href="services.html">Services</a> / Grounds Maintenance</p>
@@ -176,7 +183,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance" width="180" height="54">
+        <img loading="lazy" decoding="async" src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance" width="180" height="54">
         <p>Owner-operated, registered and insured lawn mowing, hedge trimming and grounds maintenance across Frankston and the Mornington Peninsula since 2014.</p>
       </div>
       <div>
@@ -213,6 +220,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>
