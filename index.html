@@ -24,8 +24,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap"></noscript>
+<link rel="stylesheet" href="css/style.css?v=3">
 
 <!-- Schema: LocalBusiness + AggregateRating + Offers -->
 <script type="application/ld+json">
@@ -44,7 +46,7 @@
   "founder": { "@type": "Person", "name": "Peter Jakubczyk" },
   "address": { "@type": "PostalAddress", "streetAddress": "3 Kooluna Crescent", "addressLocality": "Frankston", "addressRegion": "VIC", "postalCode": "3199", "addressCountry": "AU" },
   "areaServed": ["Frankston", "Seaford", "Mount Eliza", "Langwarrin", "Carrum Downs", "Mornington Peninsula"],
-  "sameAs": ["https://www.facebook.com/", "https://www.instagram.com/", "https://www.tiktok.com/"],
+  "sameAs": ["https://www.facebook.com/drmow", "https://www.instagram.com/locallawnmowing", "https://share.google/4B05bDf9gb260l9O4"],
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "50", "bestRating": "5" },
   "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:00", "closes": "18:00" }],
   "makesOffer": [
@@ -90,11 +92,16 @@
     </a>
     <nav class="nav" id="primary-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="services.html">Services</a>
-      <a href="index.html#areas">Service Areas</a>
+      <div class="nav-dd">
+        <a href="services.html" class="nav-dd-toggle" aria-haspopup="true">Services <span class="caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dd-menu">
+          <a href="lawn-mowing-frankston.html">Lawn Mowing</a>
+          <a href="hedge-trimming-frankston.html">Hedge Trimming</a>
+          <a href="grounds-maintenance-frankston.html">Grounds Maintenance</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
       <a href="index.html#reviews">Reviews</a>
-      <a href="index.html#gallery">Gallery</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-cta">
@@ -108,9 +115,10 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <img class="hero-bg" src="assets/images/hero-lawn-truck.webp" alt="Freshly mown green lawn beside a Local Lawn Mowing & Maintenance truck in Frankston" width="1600" height="900">
+    <img fetchpriority="high" decoding="async" class="hero-bg" src="assets/images/hero-lawn-truck.webp" alt="Freshly mown green lawn beside a Local Lawn Mowing & Maintenance truck in Frankston" width="1600" height="900">
     <div class="hero-overlay"></div>
     <div class="container">
+      <div class="hero-grid">
       <div class="hero-inner reveal in">
         <span class="pill">Lawn &amp; Garden Care · Frankston, VIC</span>
         <h1 class="h1">Professional <span class="accent">Lawn Mowing Frankston</span> Trusts</h1>
@@ -129,6 +137,10 @@
           </div>
           <div class="hero-note">Trusted by homes &amp; businesses<br>across the Peninsula</div>
         </div>
+      </div>
+      <div class="hero-visual reveal in">
+        <img fetchpriority="high" decoding="async" class="hero-van" src="assets/images/van-hero.webp" alt="Local Lawn Mowing &amp; Maintenance branded service van in Frankston" width="577" height="433" loading="eager">
+      </div>
       </div>
     </div>
   </section>
@@ -159,7 +171,7 @@
     <div class="container">
       <div class="grid grid-3">
         <article class="card reveal">
-          <a href="lawn-mowing-frankston.html" class="card-media"><img src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="600" height="420"></a>
+          <a href="lawn-mowing-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="600" height="420"></a>
           <div class="card-body">
             <h3 class="h3">Lawn Mowing Frankston</h3>
             <p>Precision cutting, edging and green-waste removal on a weekly or fortnightly schedule. We match the mowing height to your grass type and the season for a healthy, striped, professional finish every visit.</p>
@@ -167,7 +179,7 @@
           </div>
         </article>
         <article class="card reveal reveal-delay-1">
-          <a href="hedge-trimming-frankston.html" class="card-media"><img src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="600" height="420"></a>
+          <a href="hedge-trimming-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="600" height="420"></a>
           <div class="card-body">
             <h3 class="h3">Hedge Trimming</h3>
             <p>Sharp, straight, healthy hedges that lift your whole street frontage. We shape and reduce hedges of any size, clean up every clipping, and keep growth in check with regular scheduled trims.</p>
@@ -175,7 +187,7 @@
           </div>
         </article>
         <article class="card reveal reveal-delay-2">
-          <a href="grounds-maintenance-frankston.html" class="card-media"><img src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="600" height="420"></a>
+          <a href="grounds-maintenance-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="600" height="420"></a>
           <div class="card-body">
             <h3 class="h3">Grounds Maintenance</h3>
             <p>Complete ongoing care for homes, businesses and strata — mowing, weeding, pruning, garden-bed tidy-ups and rubbish removal, all on one dependable schedule so the whole property stays immaculate year round.</p>
@@ -190,7 +202,7 @@
   <section id="about" class="section bg-white bordered-y">
     <div class="container">
       <div class="split">
-        <div class="media-frame reveal"><img src="assets/images/gallery-2.webp" alt="Freshly edged nature strip in Frankston after lawn mowing" width="600" height="420"></div>
+        <div class="media-frame reveal"><img loading="lazy" decoding="async" src="assets/images/gallery-2.webp" alt="Freshly edged nature strip in Frankston after lawn mowing" width="600" height="420"></div>
         <div class="reveal reveal-delay-1">
           <span class="eyebrow">Why locals choose us</span>
           <h2 class="h2" style="margin-top:12px;">A Local Business You Can Actually Rely On</h2>
@@ -270,32 +282,26 @@
     </div>
   </section>
 
-  <!-- ===== GALLERY ===== -->
-  <section id="gallery" class="section bg-cream">
+  <!-- ===== BEFORE / AFTER ===== -->
+  <section id="before-after" class="section bg-cream">
     <div class="container">
-      <div class="section-head reveal" style="margin-bottom:40px;">
-        <span class="eyebrow">Recent work</span>
-        <h2 class="h2">Frankston Lawns We're Proud Of</h2>
+      <div class="section-head reveal">
+        <span class="eyebrow">Real Frankston results</span>
+        <h2 class="h2">See the Before &amp; After</h2>
+        <p class="lead">Drag the slider to see a real Frankston backyard we transformed — from long and overgrown to a crisp, evenly striped finish.</p>
       </div>
-      <div style="max-width:920px;margin:0 auto 44px;" class="reveal">
+      <div style="max-width:920px;margin:0 auto;" class="reveal">
         <div class="compare">
-          <img src="assets/images/grounds.webp" alt="Overgrown lawn in Frankston before mowing" draggable="false">
+          <img src="assets/images/before.webp" alt="Overgrown backyard lawn in Frankston before mowing" width="950" height="463" draggable="false" loading="lazy" decoding="async">
           <span class="compare-tag before">Before</span>
           <div class="compare-after">
-            <img src="assets/images/lawn-mowing.webp" alt="Freshly mown striped lawn in Frankston after our service" draggable="false">
+            <img src="assets/images/after.webp" alt="Freshly mown, evenly striped backyard lawn in Frankston after our service" width="953" height="462" draggable="false" loading="lazy" decoding="async">
             <span class="compare-tag after">After</span>
           </div>
           <div class="compare-handle"><div class="compare-knob">‹ ›</div></div>
           <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
         </div>
-        <p class="text-center" style="color:var(--light);font-size:14px;margin-top:14px;">Drag the slider to see the difference — real Frankston lawns, before &amp; after our service.</p>
-      </div>
-      <div class="gallery-grid reveal">
-        <div class="tile tile-lg"><img src="assets/images/lawn-mowing.webp" alt="Striped freshly mown lawn between concrete paths in Frankston" width="600" height="440"></div>
-        <div class="tile"><img src="assets/images/grounds.webp" alt="Lush maintained lawn beside a garden edge" width="300" height="220"></div>
-        <div class="tile"><img src="assets/images/gallery-hedge-art.webp" alt="Decorative shaped hedge trimming on a Frankston property" width="300" height="220"></div>
-        <div class="tile"><img src="assets/images/hedge-trimming.webp" alt="Straight trimmed hedge along a driveway" width="300" height="220"></div>
-        <div class="tile"><img src="assets/images/gallery-3.webp" alt="Sharp mown grass edge along a footpath in Frankston" width="300" height="220"></div>
+        <p class="text-center" style="color:var(--light);font-size:14px;margin-top:14px;">Drag the slider — a real Frankston lawn, before &amp; after our service.</p>
       </div>
     </div>
   </section>
@@ -332,7 +338,7 @@
 
   <!-- ===== QUOTE / CONTACT ===== -->
   <section id="quote" class="quote">
-    <img class="quote-bg" src="assets/images/van.webp" alt="Local Lawn Mowing & Maintenance truck parked in a Frankston street">
+    <img loading="lazy" decoding="async" class="quote-bg" src="assets/images/van.webp" alt="Local Lawn Mowing & Maintenance truck parked in a Frankston street">
     <div class="quote-overlay"></div>
     <div class="container section">
       <div class="quote-split">
@@ -347,13 +353,8 @@
           </div>
         </div>
 
-        <div class="form-card reveal reveal-delay-1" data-form-wrap>
-          <div data-form-success class="form-success is-hidden">
-            <div class="check">✓</div>
-            <h3 class="h3">Thanks — request received!</h3>
-            <p>We'll be in touch shortly on your quote. For anything urgent, call us on 0413 953 362.</p>
-          </div>
-          <form data-quote-form name="quote-request" method="post" action="#">
+        <div class="form-card reveal reveal-delay-1">
+          <form data-quote-form name="quote-request" method="get" action="thank-you.html">
             <h3 class="h3">Request a Quote</h3>
             <p class="form-hint">Fields marked * are required.</p>
             <div class="form-row">
@@ -388,7 +389,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance" width="180" height="54">
+        <img loading="lazy" decoding="async" src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance" width="180" height="54">
         <p>Owner-operated, registered and insured lawn mowing, hedge trimming and grounds maintenance across Frankston and the Mornington Peninsula since 2014.</p>
       </div>
       <div>
@@ -409,9 +410,9 @@
           <a href="mailto:info@locallawnmowing.com.au">info@locallawnmowing.com.au</a>
           <span>Frankston, VIC 3199</span>
           <div class="socials">
-            <a href="https://www.facebook.com/" aria-label="Facebook" rel="noopener" target="_blank">f</a>
-            <a href="https://www.instagram.com/" aria-label="Instagram" rel="noopener" target="_blank">◉</a>
-            <a href="https://www.tiktok.com/" aria-label="TikTok" rel="noopener" target="_blank">♪</a>
+            <a href="https://www.facebook.com/drmow" aria-label="Facebook" rel="noopener" target="_blank">f</a>
+            <a href="https://www.instagram.com/locallawnmowing" aria-label="Instagram" rel="noopener" target="_blank">◉</a>
+            <a href="https://share.google/4B05bDf9gb260l9O4" aria-label="Google Business Profile" rel="noopener" target="_blank">G</a>
           </div>
         </div>
       </div>
@@ -425,6 +426,6 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

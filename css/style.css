@@ -126,6 +126,17 @@ button { font-family: inherit; cursor: pointer; }
 .nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 0; background: var(--green); transition: width .25s var(--ease); }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--green); }
 .nav a:hover::after, .nav a[aria-current="page"]::after { width: 100%; }
+/* Services dropdown */
+.nav-dd { position: relative; display: inline-flex; align-items: center; }
+.nav-dd-toggle { display: inline-flex; align-items: center; gap: 6px; }
+.nav-dd .caret { font-size: 11px; transition: transform .25s var(--ease); }
+.nav-dd:hover .caret, .nav-dd:focus-within .caret { transform: rotate(180deg); }
+.nav-dd-menu { position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%) translateY(6px); min-width: 246px; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-md); padding: 8px; display: flex; flex-direction: column; gap: 2px; opacity: 0; visibility: hidden; transition: opacity .2s var(--ease), transform .2s var(--ease); z-index: 70; }
+.nav-dd-menu::before { content: ""; position: absolute; top: -14px; left: 0; right: 0; height: 14px; } /* hover bridge */
+.nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.nav-dd-menu a { padding: 11px 14px; border-radius: 6px; font-size: 14px; letter-spacing: .03em; white-space: nowrap; color: var(--ink); }
+.nav-dd-menu a::after { display: none; }
+.nav-dd-menu a:hover { background: var(--cream); color: var(--green); }
 .header-cta { display: flex; align-items: center; gap: 14px; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; padding: 8px; }
 .nav-toggle span { width: 26px; height: 2.5px; background: var(--navy-900); border-radius: 2px; transition: transform .3s var(--ease), opacity .3s var(--ease); }
@@ -145,6 +156,14 @@ button { font-family: inherit; cursor: pointer; }
 .hero-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
 .hero-trust { display: flex; align-items: center; gap: 20px; margin-top: 34px; flex-wrap: wrap; }
 .hero-note { color: #c9d2ff; font-size: 14px; line-height: 1.4; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 30px; align-items: center; }
+.hero-visual { position: relative; min-height: 340px; display: flex; align-items: center; justify-content: center; }
+/* spotlight glow behind the van */
+.hero-visual::before { content: ""; position: absolute; width: 92%; height: 92%; top: 4%; left: 5%; border-radius: 50%; background: radial-gradient(circle at 55% 45%, rgba(47,158,68,.34), rgba(143,227,165,.10) 44%, rgba(15,23,71,0) 72%); }
+/* soft ground shadow so the van feels planted */
+.hero-visual::after { content: ""; position: absolute; bottom: 12%; left: 50%; transform: translateX(-50%); width: 66%; height: 26px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.55), rgba(0,0,0,0) 70%); filter: blur(3px); }
+.hero-van { position: relative; z-index: 1; width: 100%; max-width: 700px; height: auto; filter: drop-shadow(0 22px 28px rgba(0,0,0,.5)); animation: vanFloat 6s ease-in-out infinite; }
+@keyframes vanFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
 /* Pills / badges */
 .pill {
@@ -375,11 +394,18 @@ button { font-family: inherit; cursor: pointer; }
     box-shadow: var(--shadow-sm);
   }
   .nav.open a { width: 100%; padding: 12px 0; border-bottom: 1px solid var(--border-2); font-size: 16px; }
+  .nav.open .nav-dd { display: flex; flex-direction: column; width: 100%; align-items: flex-start; }
+  .nav.open .nav-dd-menu { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; border: 0; padding: 0 0 0 16px; min-width: 0; background: transparent; width: 100%; }
+  .nav.open .nav-dd-menu a { font-size: 15px; color: var(--muted); }
+  .nav.open .caret { display: none; }
   .statbar-grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--border-2); }
   .topbar-left { font-size: 12.5px; }
   .hero .container { padding-top: 64px; padding-bottom: 72px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+  .hero-visual { min-height: 0; margin-top: 4px; }
+  .hero-van { max-width: 480px; margin: 0 auto; }
 }
 
 @media (max-width: 560px) {
