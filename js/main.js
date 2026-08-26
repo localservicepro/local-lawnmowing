@@ -86,14 +86,12 @@
       apply(range.value);
     });
 
-    /* ---- Quote form → redirect to thank-you page on submit ---- */
-    document.querySelectorAll("form[data-quote-form]").forEach(function (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var url = form.getAttribute("data-redirect") || form.getAttribute("action") || "thank-you.html";
-        window.location.href = url;
-      });
-    });
+    /* ---- Quote form ----
+       Submission is intentionally left to the browser's NATIVE submit event so
+       GoHighLevel's external-tracking script can capture it (it requires the
+       native submit and must not be preventDefault()-ed or bypassed).
+       The form's action="thank-you" + method="get" carries the field values
+       through to the thank-you page, which reads them for personalisation. */
 
     /* ---- Footer year ---- */
     document.querySelectorAll("[data-year]").forEach(function (el) {

@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Thank You | Local Lawn Mowing &amp; Maintenance</title>
 <meta name="description" content="Thanks — your quote request has been received. The Local Lawn Mowing & Maintenance team will be in touch shortly. For anything urgent, call 0413 953 362.">
-<link rel="canonical" href="https://locallawnmowing.com.au/thank-you.html">
+<link rel="canonical" href="https://locallawnmowing.com.au/thank-you">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#0f1747">
 <meta property="og:title" content="Thank You | Local Lawn Mowing &amp; Maintenance">
 <meta property="og:description" content="Your quote request has been received. We'll be in touch shortly.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://locallawnmowing.com.au/thank-you.html">
+<meta property="og:url" content="https://locallawnmowing.com.au/thank-you">
 <meta property="og:image" content="https://locallawnmowing.com.au/assets/images/lawn-mowing.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -36,23 +36,23 @@
 
 <header class="header">
   <div class="container">
-    <a href="index.html" class="brand" aria-label="Local Lawn Mowing & Maintenance home"><img src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance logo" width="180" height="52"></a>
+    <a href="./" class="brand" aria-label="Local Lawn Mowing & Maintenance home"><img src="assets/images/logo.png" alt="Local Lawn Mowing & Maintenance logo" width="180" height="52"></a>
     <nav class="nav" id="primary-nav" aria-label="Primary">
-      <a href="index.html">Home</a>
+      <a href="./">Home</a>
       <div class="nav-dd">
-        <a href="services.html" class="nav-dd-toggle" aria-haspopup="true">Services <span class="caret" aria-hidden="true">▾</span></a>
+        <a href="services" class="nav-dd-toggle" aria-haspopup="true">Services <span class="caret" aria-hidden="true">▾</span></a>
         <div class="nav-dd-menu">
-          <a href="lawn-mowing-frankston.html">Lawn Mowing</a>
-          <a href="hedge-trimming-frankston.html">Hedge Trimming</a>
-          <a href="grounds-maintenance-frankston.html">Grounds Maintenance</a>
+          <a href="lawn-mowing-frankston">Lawn Mowing</a>
+          <a href="hedge-trimming-frankston">Hedge Trimming</a>
+          <a href="grounds-maintenance-frankston">Grounds Maintenance</a>
         </div>
       </div>
-      <a href="about.html">About</a>
-      <a href="index.html#reviews">Reviews</a>
-      <a href="contact.html">Contact</a>
+      <a href="about">About</a>
+      <a href="./#reviews">Reviews</a>
+      <a href="contact">Contact</a>
     </nav>
     <div class="header-cta">
-      <a href="contact.html" class="btn btn-green">Request a Quote</a>
+      <a href="tel:+61413953362" class="btn btn-green">☏ 0413 953 362</a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -61,19 +61,26 @@
 <main id="main">
 
   <section class="quote" style="background:var(--navy-900);">
-    <img class="quote-bg" src="assets/images/lawn-mowing.webp" alt="Freshly striped lawn in Frankston">
+    <img fetchpriority="high" decoding="async" class="quote-bg" src="assets/images/lawn-mowing.webp" alt="Freshly striped lawn in Frankston">
     <div class="quote-overlay"></div>
     <div class="container section" style="text-align:center;">
-      <div class="reveal in" style="max-width:720px;margin:0 auto;color:#fff;">
+      <div class="reveal in" style="max-width:760px;margin:0 auto;color:#fff;">
         <div class="check" style="width:84px;height:84px;font-size:42px;margin:0 auto 26px;background:#e6f6ea;color:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;">✓</div>
         <span class="pill">Request Received</span>
-        <h1 class="h1" style="color:#fff;margin:20px 0 0;">Thank You!</h1>
-        <p class="lead" style="color:#c9d2ff;margin:18px auto 0;max-width:560px;">Your quote request has been received. A member of the Local Lawn Mowing &amp; Maintenance team will be in touch shortly to confirm your details and pricing.</p>
+        <h1 class="h1" id="ty-heading" style="color:#fff;margin:20px 0 0;">Thank You!</h1>
+        <p class="lead" id="ty-intro" style="color:#c9d2ff;margin:18px auto 0;max-width:600px;">Your quote request has been received. A member of the Local Lawn Mowing &amp; Maintenance team will be in touch shortly to confirm your details and pricing.</p>
+
+        <!-- Submission summary (populated from the submitted values) -->
+        <div id="ty-summary" class="ty-summary is-hidden" aria-live="polite">
+          <h2 class="ty-summary-title">Here's what you sent us</h2>
+          <dl class="ty-summary-list" id="ty-summary-list"></dl>
+          <p class="ty-summary-note">Something not right? Just call or text us on <a href="tel:+61413953362">0413 953 362</a> and we'll update it.</p>
+        </div>
+
         <div class="hero-actions" style="justify-content:center;margin-top:32px;">
           <a href="tel:+61413953362" class="btn btn-green btn-lg">☏ Call Us Now — 0413 953 362</a>
-          <a href="index.html" class="btn btn-ghost btn-lg">Back to Home</a>
+          <a href="./" class="btn btn-ghost btn-lg">Back to Home</a>
         </div>
-        <p style="color:#9fa9d8;font-size:14px;margin-top:22px;">Need something urgent? Call or text us directly on <a href="tel:+61413953362" style="color:var(--green-200);">0413 953 362</a>.</p>
       </div>
     </div>
   </section>
@@ -100,16 +107,16 @@
       </div>
       <div class="grid grid-3">
         <article class="card reveal">
-          <a href="lawn-mowing-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="600" height="420"></a>
-          <div class="card-body"><h3 class="h3">Lawn Mowing Frankston</h3><p>Weekly or fortnightly cutting, edging and green-waste removal for a sharp finish every visit.</p><a href="lawn-mowing-frankston.html" class="card-link">Explore lawn mowing →</a></div>
+          <a href="lawn-mowing-frankston" class="card-media"><img loading="lazy" decoding="async" src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="600" height="420"></a>
+          <div class="card-body"><h3 class="h3">Lawn Mowing Frankston</h3><p>Weekly or fortnightly cutting, edging and green-waste removal for a sharp finish every visit.</p><a href="lawn-mowing-frankston" class="card-link">Explore lawn mowing →</a></div>
         </article>
         <article class="card reveal reveal-delay-1">
-          <a href="hedge-trimming-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="600" height="420"></a>
-          <div class="card-body"><h3 class="h3">Hedge Trimming</h3><p>Sharp, straight, healthy hedges of any size — shaped, reduced and fully cleaned up.</p><a href="hedge-trimming-frankston.html" class="card-link">Explore hedge trimming →</a></div>
+          <a href="hedge-trimming-frankston" class="card-media"><img loading="lazy" decoding="async" src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="600" height="420"></a>
+          <div class="card-body"><h3 class="h3">Hedge Trimming</h3><p>Sharp, straight, healthy hedges of any size — shaped, reduced and fully cleaned up.</p><a href="hedge-trimming-frankston" class="card-link">Explore hedge trimming →</a></div>
         </article>
         <article class="card reveal reveal-delay-2">
-          <a href="grounds-maintenance-frankston.html" class="card-media"><img loading="lazy" decoding="async" src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="600" height="420"></a>
-          <div class="card-body"><h3 class="h3">Grounds Maintenance</h3><p>Complete ongoing property care for homes, businesses and strata on one dependable schedule.</p><a href="grounds-maintenance-frankston.html" class="card-link">Explore grounds care →</a></div>
+          <a href="grounds-maintenance-frankston" class="card-media"><img loading="lazy" decoding="async" src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="600" height="420"></a>
+          <div class="card-body"><h3 class="h3">Grounds Maintenance</h3><p>Complete ongoing property care for homes, businesses and strata on one dependable schedule.</p><a href="grounds-maintenance-frankston" class="card-link">Explore grounds care →</a></div>
         </article>
       </div>
     </div>
@@ -127,12 +134,12 @@
       <div>
         <h4>Explore</h4>
         <div class="footer-links">
-          <a href="services.html">Services</a>
-          <a href="lawn-mowing-frankston.html">Lawn Mowing</a>
-          <a href="hedge-trimming-frankston.html">Hedge Trimming</a>
-          <a href="grounds-maintenance-frankston.html">Grounds Maintenance</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
+          <a href="services">Services</a>
+          <a href="lawn-mowing-frankston">Lawn Mowing</a>
+          <a href="hedge-trimming-frankston">Hedge Trimming</a>
+          <a href="grounds-maintenance-frankston">Grounds Maintenance</a>
+          <a href="about">About</a>
+          <a href="contact">Contact</a>
         </div>
       </div>
       <div>
@@ -158,6 +165,57 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
+<script>
+/* Personalise the thank-you page from the submitted values.
+   Field keys match the GoHighLevel contact fields:
+     full_name · email · phone · service_needed · property_address · property_size · job_notes
+   If this page is hosted inside GHL instead, the same values are available as
+   merge fields ({{contact.full_name}} etc.) and can replace this block. */
+(function () {
+  "use strict";
+  var params = new URLSearchParams(window.location.search);
+  var get = function (k) { return (params.get(k) || "").trim(); };
+
+  var fullName = get("full_name");
+
+  // Personalised greeting — first name only, kept tidy
+  if (fullName) {
+    var first = fullName.split(/\s+/)[0];
+    if (first.length > 24) first = first.slice(0, 24);
+    document.getElementById("ty-heading").textContent = "Thanks, " + first + "!";
+    document.getElementById("ty-intro").textContent =
+      "We've received your quote request and a member of the Local Lawn Mowing & Maintenance team will be in touch shortly to confirm your details and pricing.";
+  }
+
+  // Summary of what was submitted
+  var rows = [
+    ["Full name", get("full_name")],
+    ["Email", get("email")],
+    ["Phone", get("phone")],
+    ["Service needed", get("service_needed")],
+    ["Property address", get("property_address")],
+    ["Property size", get("property_size")],
+    ["Job notes", get("job_notes")]
+  ].filter(function (r) { return r[1]; });
+
+  if (rows.length) {
+    var list = document.getElementById("ty-summary-list");
+    rows.forEach(function (r) {
+      var dt = document.createElement("dt");
+      dt.textContent = r[0];
+      var dd = document.createElement("dd");
+      dd.textContent = r[1];          // textContent — never innerHTML
+      list.appendChild(dt);
+      list.appendChild(dd);
+    });
+    document.getElementById("ty-summary").classList.remove("is-hidden");
+  }
+})();
+</script>
+<script
+  src="https://link.msgsndr.com/js/external-tracking.js"
+  data-tracking-id="tk_ce04b22bdbd7469bb2d129d19b8ef37b">
+</script>
 </body>
 </html>
