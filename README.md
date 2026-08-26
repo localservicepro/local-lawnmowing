@@ -55,13 +55,31 @@ class-based stylesheet, no framework runtime).
 - No build step and no JS framework — plain HTML5, one external CSS file, one small
   vanilla JS file. Markup uses semantic sections and descriptive classes that map
   cleanly onto Webflow's structure panel.
-- The quote form uses standard `name` attributes on every field, so it can be wired
-  to Webflow Forms (or any handler) directly. On submit, every form redirects to
-  `thank-you.html` — `js/main.js` performs the redirect (reading the form's `action`,
-  or a `data-redirect` attribute if you want a per-form destination), and the form's
-  `action="thank-you.html"` acts as the no-JS fallback. In Webflow, set the same URL
-  as the form's **redirect** in form settings. `thank-you.html` is `noindex` and kept
-  out of `sitemap.xml`, and makes an ideal conversion goal in analytics.
+- **Clean URLs:** internal links are extensionless (`/services`, `/contact`). GitHub
+  Pages and Webflow both resolve these to the matching page automatically.
+- **Quote form → GoHighLevel.** Field `name` attributes match the GHL contact fields
+  exactly, so submissions sync to contacts:
+
+  | Form field | GHL contact field |
+  |---|---|
+  | Full Name | `{{contact.full_name}}` |
+  | Email | `{{contact.email}}` |
+  | Phone | `{{contact.phone}}` |
+  | Service Needed | `{{contact.service_needed}}` |
+  | Property Address | `{{contact.property_address}}` |
+  | Property Size | `{{contact.property_size}}` |
+  | Job Notes | `{{contact.job_notes}}` |
+
+  The form is rendered directly in the page DOM (no iframe), uses
+  `<button type="submit">`, and **submits via the browser's native submit event** —
+  no JS `preventDefault()` — which is what GHL's tracking requires to capture it.
+  Enable *Form Analytics* and *Form Submissions* in GHL settings.
+- **Tracking:** the GHL `external-tracking.js` snippet is on every page before `</body>`.
+- **Thank-you page:** the form posts to `thank-you` via GET, so the submitted values
+  arrive as query params and the page greets the visitor by first name and lists a
+  summary of what they sent. If you host the thank-you page inside GHL instead, swap
+  the inline script for the `{{contact.*}}` merge fields above. Page is `noindex` and
+  excluded from `sitemap.xml`, making it a clean analytics conversion goal.
 - Google Fonts are linked in `<head>` (Oswald + Barlow) — add the same two families
   in Webflow's font settings.
 - JSON-LD `<script>` blocks can be pasted into each page's custom code (head).
