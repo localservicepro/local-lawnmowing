@@ -278,6 +278,7 @@ button { font-family: inherit; cursor: pointer; }
 .quote-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,71,.9), rgba(15,23,71,.96)); }
 .quote .container { position: relative; }
 .quote-split { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+.quote-split > *, .form-row > * { min-width: 0; }
 .contact-lines { display: flex; flex-direction: column; gap: 16px; font-size: 16px; margin-top: 30px; }
 .contact-line { display: flex; align-items: center; gap: 14px; color: #fff; }
 .contact-line .ico { width: 44px; height: 44px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 18px; flex: none; }
@@ -291,7 +292,8 @@ button { font-family: inherit; cursor: pointer; }
 .field:first-child, .form-row .field { margin-top: 0; }
 .field > span { font-size: 13px; font-weight: 600; color: var(--slate); display: block; margin-bottom: 6px; }
 .field input, .field select, .field textarea {
-  width: 100%; border: 1px solid #d7dbd0; border-radius: var(--radius-sm);
+  width: 100%; min-width: 0; max-width: 100%;
+  border: 1px solid #d7dbd0; border-radius: var(--radius-sm);
   padding: 12px 14px; font-family: var(--font-body); font-size: 15px; background: var(--cream-50);
   color: var(--slate); transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
@@ -336,6 +338,40 @@ button { font-family: inherit; cursor: pointer; }
 .breadcrumb { font-size: 13.5px; color: #9fa9d8; font-family: var(--font-head); text-transform: uppercase; letter-spacing: .08em; }
 .breadcrumb a { color: var(--green-200); }
 
+/* Page hero that carries the quote form above the fold (contact page).
+   Desktop: copy + contact details stack in the left column, form on the right.
+   Mobile: form moves directly under the headline so leads reach it first. */
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "copy form" "contact form";
+  grid-template-rows: auto 1fr;
+  gap: 26px 52px;
+  align-items: start;
+}
+.ch-copy    { grid-area: copy; }
+.ch-contact { grid-area: contact; }
+.ch-form    { grid-area: form; }
+/* grid/flex children default to min-width:auto, so a long <select> option can
+   force the track wider than the viewport — pin them back to 0 */
+.contact-hero-grid > * { min-width: 0; }
+@media (max-width: 960px) {
+  .contact-hero-grid { grid-template-columns: 1fr; grid-template-areas: "copy" "form" "contact"; gap: 24px; }
+}
+
+.page-hero--form .container { padding-top: 52px; padding-bottom: 60px; }
+.page-hero--form .h1 { font-size: clamp(32px, 4.4vw, 48px); margin-top: 14px; }
+.page-hero--form .lead { font-size: 17px; margin-top: 14px; max-width: 520px; }
+.page-hero--form .breadcrumb { margin-bottom: 12px; }
+.page-hero--form .contact-lines { margin-top: 24px; gap: 13px; }
+.page-hero--form .form-card { box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+@media (max-width: 960px) {
+  .page-hero--form .container { padding-top: 34px; padding-bottom: 44px; }
+  .page-hero--form .h1 { font-size: clamp(28px, 7vw, 36px); }
+  .page-hero--form .lead { font-size: 15.5px; margin-top: 12px; }
+  .page-hero--form .breadcrumb { display: none; }
+}
+
 /* ---------- Prose (article content) ---------- */
 .prose { color: var(--text); font-size: 17px; line-height: 1.75; }
 .prose h2 { color: var(--ink); margin: 40px 0 14px; font-size: 30px; }
@@ -358,6 +394,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-950); color: #9fa9d8; }
 .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding: 60px 24px 30px; }
+.footer-top > * { min-width: 0; }
 .footer h4 { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; color: #fff; font-size: 16px; letter-spacing: .05em; margin-bottom: 16px; }
 .footer-brand img { height: 54px; width: auto; background: #fff; padding: 8px 12px; border-radius: var(--radius-sm); }
 .footer-brand p { font-size: 14.5px; line-height: 1.6; margin-top: 18px; max-width: 340px; }
@@ -424,6 +461,7 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 560px) {
   .grid-3, .grid-2, .steps, .area-grid, .form-row, .features { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 30px; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
   .container, .container-narrow { padding: 0 18px; }
   .topbar-left { display: none; }
