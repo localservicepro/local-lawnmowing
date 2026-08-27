@@ -28,12 +28,10 @@
 <meta name="twitter:description" content="Reliable, insured lawn mowing, hedge trimming &amp; grounds maintenance across Frankston &amp; the Mornington Peninsula. 50+ verified 5-star reviews.">
 <meta name="twitter:image" content="https://locallawnmowing.com.au/assets/images/hero-lawn.webp">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;600;700&display=swap"></noscript>
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/oswald-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlow-400.woff2" crossorigin>
+<link rel="preload" as="image" href="assets/images/hero-lawn.webp" fetchpriority="high">
+<link rel="stylesheet" href="css/style.css?v=6">
 
 <!-- Schema: LocalBusiness + AggregateRating + Offers -->
 <script type="application/ld+json">
@@ -121,7 +119,7 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <img fetchpriority="high" decoding="async" class="hero-bg" src="assets/images/hero-lawn.webp" alt="Lush, freshly mown green lawn on a Frankston property" width="1200" height="899">
+    <img fetchpriority="high" decoding="async" class="hero-bg" src="assets/images/hero-lawn.webp" alt="Lush, freshly mown green lawn on a Frankston property" width="900" height="674">
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-grid">
@@ -176,7 +174,7 @@
     <div class="container">
       <div class="grid grid-3">
         <article class="card reveal">
-          <a href="services/lawn-mowing/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="600" height="420"></a>
+          <a href="services/lawn-mowing/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/lawn-mowing.webp" alt="Precision lawn mowing with clean stripes on a Frankston front lawn" width="1000" height="562"></a>
           <div class="card-body">
             <h3 class="h3">Lawn Mowing Frankston</h3>
             <p>Precision cutting, edging and green-waste removal on a weekly or fortnightly schedule. We match the mowing height to your grass type and the season for a healthy, striped, professional finish every visit.</p>
@@ -184,7 +182,7 @@
           </div>
         </article>
         <article class="card reveal reveal-delay-1">
-          <a href="services/hedge-trimming/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="600" height="420"></a>
+          <a href="services/hedge-trimming/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/hedge-trimming.webp" alt="Neatly trimmed hedge running along a brick wall in Frankston" width="1000" height="562"></a>
           <div class="card-body">
             <h3 class="h3">Hedge Trimming</h3>
             <p>Sharp, straight, healthy hedges that lift your whole street frontage. We shape and reduce hedges of any size, clean up every clipping, and keep growth in check with regular scheduled trims.</p>
@@ -192,7 +190,7 @@
           </div>
         </article>
         <article class="card reveal reveal-delay-2">
-          <a href="services/grounds-maintenance/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="600" height="420"></a>
+          <a href="services/grounds-maintenance/" class="card-media"><img loading="lazy" decoding="async" src="assets/images/grounds.webp" alt="Immaculate maintained lawn and garden bed on a Mornington Peninsula property" width="1000" height="562"></a>
           <div class="card-body">
             <h3 class="h3">Grounds Maintenance</h3>
             <p>Complete ongoing care for homes, businesses and strata — mowing, weeding, pruning, garden-bed tidy-ups and rubbish removal, all on one dependable schedule so the whole property stays immaculate year round.</p>
@@ -207,7 +205,7 @@
   <section id="about" class="section bg-white bordered-y">
     <div class="container">
       <div class="split">
-        <div class="media-frame reveal"><img loading="lazy" decoding="async" src="assets/images/gallery-2.webp" alt="Freshly edged nature strip in Frankston after lawn mowing" width="600" height="420"></div>
+        <div class="media-frame reveal"><img loading="lazy" decoding="async" src="assets/images/gallery-2.webp" alt="Freshly edged nature strip in Frankston after lawn mowing" width="1000" height="562"></div>
         <div class="reveal reveal-delay-1">
           <span class="eyebrow">Why locals choose us</span>
           <h2 class="h2" style="margin-top:12px;">A Local Business You Can Actually Rely On</h2>
@@ -300,7 +298,7 @@
           <img src="assets/images/before.webp" alt="Overgrown backyard lawn in Frankston before mowing" width="950" height="463" draggable="false" loading="lazy" decoding="async">
           <span class="compare-tag before">Before</span>
           <div class="compare-after">
-            <img src="assets/images/after.webp" alt="Freshly mown, evenly striped backyard lawn in Frankston after our service" width="953" height="462" draggable="false" loading="lazy" decoding="async">
+            <img src="assets/images/after.webp" alt="Freshly mown, evenly striped backyard lawn in Frankston after our service" width="950" height="461" draggable="false" loading="lazy" decoding="async">
             <span class="compare-tag after">After</span>
           </div>
           <div class="compare-handle"><div class="compare-knob">‹ ›</div></div>
@@ -442,8 +440,8 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=5"></script>
-<script
+<script src="js/main.js?v=6"></script>
+<script defer
   src="https://link.msgsndr.com/js/external-tracking.js"
   data-tracking-id="tk_ce04b22bdbd7469bb2d129d19b8ef37b">
 </script>
