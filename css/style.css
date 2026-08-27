@@ -1,4 +1,22 @@
 /* ==========================================================================
+   Self-hosted fonts (latin subset).
+   Served same-origin and preloaded, so they land before first paint instead of
+   swapping in late — that late swap was the cause of the 0.195 CLS on mobile.
+   The *-fallback faces below carry Oswald/Barlow's real vertical metrics, so
+   even if a fallback paints first the line boxes are identical and nothing moves.
+   ========================================================================== */
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(../assets/fonts/barlow-400.woff2) format('woff2');}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(../assets/fonts/barlow-600.woff2) format('woff2');}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url(../assets/fonts/barlow-700.woff2) format('woff2');}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:500;font-display:swap;src:url(../assets/fonts/oswald-500.woff2) format('woff2');}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:600;font-display:swap;src:url(../assets/fonts/oswald-600.woff2) format('woff2');}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:700;font-display:swap;src:url(../assets/fonts/oswald-700.woff2) format('woff2');}
+
+/* metric-matched fallbacks (Barlow: 1000/-200/0, Oswald: 1193/-289/0 per 1000upm) */
+@font-face{font-family:'Barlow Fallback';src:local('Arial'),local('Helvetica'),local('Roboto');ascent-override:100%;descent-override:20%;line-gap-override:0%;size-adjust:100%;}
+@font-face{font-family:'Oswald Fallback';src:local('Arial Narrow'),local('Arial'),local('Roboto Condensed'),local('Roboto');ascent-override:119.3%;descent-override:28.9%;line-gap-override:0%;size-adjust:88%;}
+
+/* ==========================================================================
    Local Lawn Mowing & Maintenance — Design System
    Brand kit: Oswald (headings) + Barlow (body); navy #0f1747 / blue #182a88 /
    green #2f9e44 / cream #f6f7f3. Built class-based for easy Webflow import.
@@ -33,8 +51,8 @@
   --shadow-sm: 0 4px 14px rgba(15,23,71,.10);
   --shadow-md: 0 18px 40px rgba(15,23,71,.14);
   --ease: cubic-bezier(.22,.61,.36,1);
-  --font-head: 'Oswald', 'Arial Narrow', sans-serif;
-  --font-body: 'Barlow', system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-head: 'Oswald', 'Oswald Fallback', 'Arial Narrow', sans-serif;
+  --font-body: 'Barlow', 'Barlow Fallback', system-ui, -apple-system, Segoe UI, sans-serif;
 }
 
 /* ---------- Reset ---------- */
