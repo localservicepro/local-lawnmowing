@@ -1,7 +1,7 @@
 {
   "name": "Local Lawn Mowing & Maintenance",
   "short_name": "Local Lawn Mowing",
-  "description": "Reliable lawn mowing, hedge trimming and grounds maintenance in Frankston & the Mornington Peninsula.",
+  "description": "Reliable scheduled lawn mowing in Frankston, VIC. Hedge trimming and grounds maintenance available alongside your regular mow.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
